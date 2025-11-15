@@ -1,0 +1,13 @@
+.build.timestamp = $timestamp |
+.build.user = $user |
+.build.host = $host |
+.build.job_id = $job_id |
+.build.toolchain = $toolchain |
+.git.local_repo_state = $local_repo_state |
+.git.branch = $branch |
+.git.tag = $tag |
+.git.release = $release |
+.git.commit = $commit |
+.git.remote = $remote |
+.top_level_parameters.variant_hex32 = $variant_hex32 |
+.top_level_parameters.variant_str = $variant_str
