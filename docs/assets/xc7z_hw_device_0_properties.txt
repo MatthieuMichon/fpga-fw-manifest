@@ -1,0 +1,35 @@
+Property                   Type          Read-only  Value
+CLASS                      string        true       hw_device
+NAME                       string        true       arm_dap_0
+PART                       string        true       arm_dap
+VARIANT_NAME               string        true
+PROGRAM.LOG                string        true
+INDEX                      int           true       0
+IDCODE                     string        true       01001011101000000000010001110111
+IDCODE_HEX                 string        true       4BA00477
+IR_LENGTH                  int           true       4
+USER_CHAIN_COUNT           string        true       0
+IS_SYSMON_SUPPORTED        bool          true       0
+PROGRAM.IS_SUPPORTED       bool          true       0
+PROGRAM.FILE               string        false
+PROGRAM.OPTIONS            string        false
+PROGRAM.HW_BITSTREAM       hw_bitstream  true
+AUTH_JTAG.FILE             string        false
+PROBES.FILE                string        false
+FULL_PROBES.FILE           string        false
+PARTIAL_PROBES.FILES       string*       false
+PROGRAM.HW_CFGMEM          hw_cfgmem     true
+PROGRAM.HW_CFGMEM_BITFILE  string        true
+PROGRAM.HW_CFGMEM_TYPE     string        true
+PROGRAM.READBACK_FILE      string        false
+PROGRAM.IS_RSA_PROGRAMMED  bool          true       0
+PROGRAM.IS_AES_PROGRAMMED  bool          true       0
+PROGRAM.DPA_PROTECT        bool          false      0
+PROGRAM.DPA_COUNT          int           false      0
+PROGRAM.DPA_MODE           string        false
+DID                        string        true       jsn-JTAG-SMT1-210203B32F4DA-4ba00477-0
+MASK                       string        true       00001111111111111111111111111111
+MASK_HEX                   string        true       0FFFFFFF
+UNKNOWN_DEVICE             bool          true       0
+XSDB_USER_BSCAN            string        false      1,3
+BSCAN_SWITCH_USER_MASK     string        false      0001
