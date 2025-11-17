@@ -18,7 +18,7 @@ VARIANT_HEX32 ?= 0xAA55CC33
 # build variables
 
 #PART ?= xcku5p-ffvb676-3-e
-PART ?= xc7z020-clg484-2-e
+PART ?= xc7z020clg484-1
 TASK ?= all
 VERBOSE ?= 0
 Q := $(if $(filter 1,$(VERBOSE)),,@)
@@ -42,7 +42,7 @@ all: $(BUILD_DIR_PREFIX)__$(GIT_COMMIT_SHORT)
 
 $(BUILD_DIR_PREFIX)%: FORCE
 	$(Q)mkdir -p $@
-    # there must be a better way for generating the JSON manifest...
+	# there must be a better way for generating the JSON manifest...
 	$(Q)jq -n -c \
         --arg timestamp "$(TIMESTAMP)" \
         --arg user "$(USER)" \
@@ -58,16 +58,17 @@ $(BUILD_DIR_PREFIX)%: FORCE
         --arg host "$(HOST)" \
         --arg variant_hex32 "$(VARIANT_HEX32)" \
         --arg variant_str "$(VARIANT_STR)" \
-        -f src/firmware_manifest.jq > $@/firmware_manifest.json
-    # xxd shifts unaligned words towards LSB
-    # we must fill last data word with spaces ` ` for preserving alignment
+        -f src/manifest.jq > $@/firmware_manifest.json
+	# xxd shifts unaligned words towards LSB
+	# we must fill last data word with spaces ` ` for preserving alignment
 	$(Q)PADDING=$$(((4 - $$(stat -c%s $@/firmware_manifest.json) % 4) % 4 )); \
 	    if [ $$PADDING -ne 0 ]; then printf '%*s' "$$PADDING" >> $@/firmware_manifest.json; fi
-    $(Q)xxd -g 4 $@/firmware_manifest.json > $@/firmware_manifest.json.xxd
-    $(Q)xxd -ps -c 4 $@/firmware_manifest.json > $@/firmware_manifest.hex
+	$(Q)xxd -g 4 $@/firmware_manifest.json > $@/firmware_manifest.json.xxd
+	$(Q)xxd -ps -c 4 $@/firmware_manifest.json > $@/firmware_manifest.hex
 	$(Q)cd $@ && $(ECHO_CMD) $(VVD) $(VVD_FLAGS) $(VVD_ARGS)
 
 .PHONY: clean
 
 clean:
 	$(Q)$(RM) -rf $(BUILD_DIR_PREFIX)*
+

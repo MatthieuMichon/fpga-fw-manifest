@@ -3,22 +3,22 @@ Firmware JSON manifest example:
 ```json
 {
   "build": {
-    "timestamp": "20251115T091657Z",
+    "timestamp": "251117T125105Z",
     "user": "mm",
-    "host": "t480s",
+    "host": "t480a",
     "job_id": "undefined",
     "toolchain": "/opt/Xilinx/2025.1/Vivado/bin/vivado"
   },
   "git": {
     "local_repo_state": "dirty",
     "branch": "main",
-    "tag": "no-tag-matching-6a6a6bfd",
+    "tag": "no-tag-matching-6ebd9e53",
     "release": "undefined",
-    "commit": "6a6a6bfdafe1273fa37ef54d35f71acf90d1f7aa",
+    "commit": "6ebd9e539693f3458e114eac9839365e0386d301",
     "remote": "git@github.com:MatthieuMichon/fpga-fw-manifest.git"
   },
   "top_level_parameters": {
-    "variant_32b": "b16b10b5",
+    "variant_hex32": "0xAA55CC33",
     "variant_str": "passing-string-values-via-verilog-generics-is-ok-or-is-it-question-mark"
   }
 }
