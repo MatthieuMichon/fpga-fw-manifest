@@ -97,6 +97,10 @@ flowchart LR
     tcl --> manifest.csv
 ```
 
+Optimized logic implementation of the `manifest` module.
+
+![](/docs/assets/schema_manifest-module.png)
+
 # Caveats
 
 - All `BSCANE2` primitives present in a design must have a unique JTAG chain index (defined with the `JTAG_CHAIN` parameter). Some features provided by the toolchain use their own `BSCANE2` with a hard-coded `JTAG_CHAIN` value:
